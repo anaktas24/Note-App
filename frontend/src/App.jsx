@@ -7,11 +7,9 @@ function App() {
       <header className="App-header">
         <>
           <h1>React App</h1>
-          <h2>React App</h2>
-          <h3>React App</h3>
-          <h4>React App</h4>
-          <h5>React App</h5>
-          <h6>React App</h6>
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
         </>
         <h1>React App</h1>
       </header>

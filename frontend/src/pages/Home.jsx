@@ -13,6 +13,7 @@ function Home() {
     getNotes();
   });
 
+  // Get all notes
   const getNotes = () => {
     api
       .get('/api/notes')
@@ -21,8 +22,7 @@ function Home() {
       .catch((error) => alert(error));
   }
 
-
-
+  // Delete a note
   const deleteNote = (id) => {
     api
       .delete(`/api/notes/delete/${id}`)
@@ -33,8 +33,9 @@ function Home() {
       .catch((error) => alert(error));
     getNotes();
     }
-  }
-  const createNotes = (e) => {
+
+  // Create a note
+  const createNote = (e) => {
     e.preventDefault();
     api
       .post('/api/notes', {title, content})
@@ -46,18 +47,46 @@ function Home() {
     getNotes();
   }
 
-  const updateNote = async (id) => {
-    api
-      .put(`/api/notes/${id}`, {title, content})
-      .then(() => getNotes())
-      .catch((error) => alert(error));
-  }
   return (
     <div>
-      <h1>Home</h1>
+      <div>
+        <h2>Notes</h2>
+
+      </div>
+      <h2>Create a Note</h2>
+
+      <form onSubmit={createNote}>
+
+        <label htmlFor="title">
+          Title:
+        </label>
+        <br />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value={title}
+          required onChange={(e) => setTitle(e.target.value)}
+        />
+
+        <label htmlFor="content">
+          Content:
+        </label>
+        <br />
+        <textarea
+          id="content"
+          name="content"
+          required value={content}
+          onChange={(e) => setContent(e.target.value)}
+        ></textarea>
+        <br />
+
+        <input type="submit" value="Submit"/>
+      </form>
     </div>
-    )
+  )
 
 }
+
 
 export default Home;

@@ -29,9 +29,10 @@ function Home() {
       .then((response) => {
         if (response.status === 204) alert('Note deleted');
         else alert('Failed to delete note');
+        getNotes();
       })
       .catch((error) => alert(error));
-    getNotes();
+
     }
 
   // Create a note
@@ -42,9 +43,10 @@ function Home() {
       .then((response) => {
         if (response.status === 201) alert('Note created');
         else alert('Failed to create note');
+        getNotes();
       })
       .catch((error) => alert(error));
-    getNotes();
+
   }
 
   return (

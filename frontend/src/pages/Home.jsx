@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react';
 import api from '../api';
+import Note from '../components/Note';
 
 
 
@@ -53,6 +54,7 @@ function Home() {
     <div>
       <div>
         <h2>Notes</h2>
+        {notes.map((note) => <Note note={note} onDelete={deleteNote} key={note._id}/>)}
 
       </div>
       <h2>Create a Note</h2>
